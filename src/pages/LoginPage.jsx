@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 
 export default function LoginPage() {
     return (
@@ -33,7 +35,7 @@ export default function LoginPage() {
 
                 <div className='flex flex-col items-center justify-center mt-4 gap-2'>
                     <button type="submit" className='w-full py-2 bg-blue-600 rounded-2xl text-white' >Login</button>
-                    <h1 className='text-gray-500 text-sm'>Don't have an account? <span className="text-blue-600 cursor-pointer">Sign up </span> </h1>
+                    <h1 className='text-gray-500 text-sm'>Don't have an account? <span className="text-blue-600 cursor-pointer"><Link to="/signup">Sign up </Link></span> </h1>
                 </div>
 
                 <div className='flex flex-row gap-4 mt-4'>
