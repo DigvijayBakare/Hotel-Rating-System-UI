@@ -1,87 +1,128 @@
-import React from 'react'
+import { FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-
 export default function LoginPage() {
-    return (
+    const hotelData = [
+        { id: 1, name: "Le Seine Boutique", location: "Paris", rating: "4.9", desc: "Boutique stay near the Seine", img: "src/assets/Image1.png" },
+        { id: 2, name: "The Grand Plaza", location: "New York", rating: "4.8", desc: "Luxury in the heart of the city", img: "src/assets/Image2.png" },
+        { id: 3, name: "Sunset Resort", location: "Maldives", rating: "5.0", desc: "Overwater villas with ocean views", img: "src/assets/Image.png" },
+    ];
 
-        <div className='flex mb-4'>
+    return (
+        <div className='flex flex-col lg:flex-row gap-8 p-4 md:p-8'>
             {/* Login Form */}
-            <div className='mx-12 p-8 w-120 shadow-xl rounded-2xl'>
-                <p className='text-2xl font-bold'>Welcome back to StayRank</p>
-                <p className='text-gray-500 text-sm'>Sign in to manage your bookings and discover curated hotels.</p>
+            <div className='mx-auto lg:mx-12 p-10 w-full max-w-125 bg-white shadow-2xl rounded-3xl flex flex-col justify-center h-fit self-center'>
+                <div className="mb-8">
+                    <p className='text-3xl font-extrabold text-gray-900'>Welcome back to StayRank</p>
+                    <p className='text-gray-500 mt-2'>Sign in to manage your bookings and discover curated hotels.</p>
+                </div>
 
                 {/* Enter email */}
-                <div className='flex flex-col gap-2 '>
-                    <label htmlFor="email-address" className='text-sm font-medium text-gray-700 mt-2'>Email Address </label>
-                    <input id="email-address" type="email" placeholder="you@example.com" className="px-4 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all" required />
-                    <p className='text-gray-500 text-sm'>Please enter a valid email address like you@example.com</p>
-                </div>
-
-                {/* Enter pass */}
-                <div className='flex flex-col gap-2'>
-                    <label htmlFor="pass" className='text-sm font-medium text-gray-700 mt-2'>Password </label>
-                    <input id="pass" type="password" className="px-4 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all" required />
-                    <p className='text-gray-500 text-sm'>Please enter a valid email address like you@example.com</p>
-                </div>
-
-                <div className='flex justify-between mt-2'>
-                    <div>
-                        <input type="checkbox" name="checkIt" id="rememberMe" />
-                        <label htmlFor="rememberMe" className='text-sm font-medium text-gray-700'>Remember Me </label>
+                <div className='flex flex-col gap-6'>
+                    <div className='flex flex-col gap-2 '>
+                        <label htmlFor="email-address" className='text-sm font-semibold text-gray-700'>Email Address </label>
+                        <input id="email-address" type="email" placeholder="you@example.com" className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none transition-all" required />
+                        <p className='text-gray-500 text-sm'>Please enter a valid email address like you@example.com</p>
                     </div>
-                    <p className='text-blue-600'>Forget password?</p>
+
+                    {/* Enter pass */}
+                    <div className='flex flex-col gap-2'>
+                        <label htmlFor="pass" className='text-sm font-semibold text-gray-700'>Password </label>
+                        <input id="pass" type="password" className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:bg-white outline-none transition-all" placeholder="••••••••" required />
+                        <p className='text-gray-500 text-sm'>Please enter a valid email address like you@example.com</p>
+                    </div>
                 </div>
 
-                <div className='flex flex-col items-center justify-center mt-4 gap-2'>
-                    <button type="submit" className='w-full py-2 bg-blue-600 rounded-2xl text-white' >Login</button>
-                    <h1 className='text-gray-500 text-sm'>Don't have an account? <span className="text-blue-600 cursor-pointer"><Link to="/signup">Sign up </Link></span> </h1>
+                {/* Utilities */}
+                <div className='flex justify-between items-center mt-6'>
+                    <label className='flex items-center gap-2 cursor-pointer group'>
+                        <input type="checkbox" id="rememberMe" className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                        <span className='text-sm text-gray-600 group-hover:text-gray-900 transition-colors'>Remember Me</span>
+                    </label>
+                    <button className='text-sm font-semibold text-blue-600 hover:underline'>Forget password?</button>
                 </div>
 
-                <div className='flex flex-row gap-4 mt-4'>
-                    <button type="submit" className='shadow-xl px-5 py-2 rounded-2xl text-black'>Continue with Google</button>
-                    <button type="submit" className='shadow-xl px-5 py-2 rounded-2xl text-black'>Continue with Apple</button>
+                {/* Actions */}
+                <div className='mt-8 flex flex-col gap-4'>
+                    <button type="submit" className='w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-200 transition-all transform active:scale-[0.98]'>
+                        Sign In
+                    </button>
+
+                    <p className='text-center text-gray-500 text-sm'>
+                        Don't have an account? <Link to="/signup" className="text-blue-600 font-bold hover:underline ml-1">Sign up</Link>
+                    </p>
+
+                    {/* Divider */}
+                    <div className="flex items-center gap-4 my-2">
+                        <div className="flex-1 h-px bg-gray-200"></div>
+                        <span className="text-xs text-gray-400 font-medium uppercase">Or continue with</span>
+                        <div className="flex-1 h-px bg-gray-200"></div>
+                    </div>
+
+                    <div className='flex flex-col sm:flex-row gap-3'>
+                        {/* Google Button */}
+                        <button className='flex-1 flex items-center justify-center gap-2 border border-gray-200 py-3 rounded-xl hover:bg-gray-50 transition-all font-medium text-sm'>
+                            <span className="p-1.5 bg-green-100 text-green-600 rounded-full">
+                                <FaWhatsapp size={16} />
+                            </span>
+                            WhatsApp Login
+                        </button>
+
+                        {/* Apple Button */}
+                        <button className='flex-1 flex items-center justify-center gap-2 border border-gray-200 py-3 rounded-xl hover:bg-gray-50 transition-all font-medium text-sm'>
+                            <span className="p-1.5 bg-blue-100 text-blue-600 rounded-full">
+                                <FaLinkedin size={16} />
+                            </span>
+                            LinkedIn Login
+                        </button>
+                    </div>
+
                 </div>
             </div>
 
 
             {/* Hotel Ad */}
-            <div className='p-8 shadow-xl rounded-2xl mb-4 bg-gray-50'>
-                <img src="src\assets\hotel.png" alt="Hotel photo" className='rounded-4xl' />
-                <div className='flex flex-row gap-8 mt-2'>
-                    <div>
-                        <p>Top-rated hotels</p>
+            <div className='p-8 shadow-xl rounded-2xl mb-4 bg-gray-50 w-full lg:w-1/2'>
+                <img src="src\assets\hotel.png" alt="Hotel photo" className='rounded-3xl w-full h-auto object-cover' />
+                <div className='flex flex-col xl:flex-row gap-8 mt-4'>
+                    <div className='flex-1'>
+                        <p className='font-bold'>Top-rated hotels</p>
                         <p className='text-gray-500 text-sm'>Handpicked stays loved by guests for exceptional service and location.</p>
 
-                        {/* const HotelItem = ({name, location, rating, desc, imgUrl}) => ( */}
-                        <div className='flex items-center gap-6 p-4 hover:bg-gray-50 transition-colors cursor-pointer'>
-                            <div className='w-32 h-24 shrink-0'>
-                                <img src="src\assets\Image.png" alt="" className='w-full h-full object-cover rounded-4xl' />
-                                {/* <img src="src\assets\Image.png" alt="" className='w-full h-full object-cover rounded-4xl' /> */}
-                                {/* <img src="src\assets\Image.png" alt="" className='w-full h-full object-cover rounded-4xl' /> */}
-                                {/* <img src="src\assets\Image.png" alt="" className='w-full h-full object-cover rounded-4xl' /> */}
-                            </div>
-                            <div className='flex flex-col'>
-                                <h3 className="text-lg font-bold text-gray-800">Le Seine Boutique</h3>
-                                <p className="text-gray-500 text-sm">Paris • 4.9 • Boutique stay near the Seine</p>
+                        <div className="flex flex-col">
+                            {hotelData.map((hotel) => (
+                                <div key={hotel.id} className='flex items-center gap-6 p-4 hover:bg-gray-50 transition-colors cursor-pointer border-b border-gray-100 last:border-0'>
+                                    {/* Image Section */}
+                                    <div className='w-32 h-24 shrink-0'>
+                                        <img
+                                            src={hotel.img}
+                                            alt={hotel.name}
+                                            className='w-full h-full object-cover rounded-4xl'
+                                        />
+                                    </div>
 
-                                {/* <h3 className="text-lg font-bold text-gray-800">{name}</h3>
-                                <p className="text-gray-500 text-sm"> {location} • {rating} • {desc} </p> */}
-                            </div>
+                                    {/* Text Section */}
+                                    <div className='flex flex-col'>
+                                        <h3 className="text-lg font-bold text-gray-800">{hotel.name}</h3>
+                                        <p className="text-gray-500 text-sm">
+                                            {hotel.location} • {hotel.rating} • {hotel.desc}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                        {/* ); */}
-
                     </div>
-                    <div>
-                        <p className=''>Why book with StayRate?</p>
-                        <p className='text-gray-500'>Verified guest reviews and trusted ratings</p>
-                        <p className='text-gray-500'>Exclusive member prices and perks</p>
-                        <p className='text-gray-500'>24/7 customer support and flexible cancellations</p>
-
-                        <button type="submit" className='w-full py-2 bg-white mt-10 shadow-2xl rounded-2xl'>Explore hotels</button>
+                    <div className='flex-1'>
+                        <p className='font-bold'>Why book with StayRate?</p>
+                        <div className="mt-2 space-y-2 text-sm text-gray-500">
+                            <p>✓ Verified guest reviews</p>
+                            <p>✓ Exclusive member prices</p>
+                            <p>✓ 24/7 customer support</p>
+                        </div>
+                        <button type="submit" className='w-full py-2 bg-white mt-6 shadow-lg rounded-2xl hover:bg-gray-100 transition-colors'>Explore hotels</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }

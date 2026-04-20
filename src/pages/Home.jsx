@@ -12,13 +12,8 @@ export default function Home() {
 
     return (
         <div>
-            {/* <Navbar /> */}
             <SearchEngine />
             <FeaturedHotels />
-            {/* <LoginPage /> */}
-            {/* <CreateAccount /> */}
-            {/* <Footer /> */}
-
         </div>
 
     )

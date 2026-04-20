@@ -1,28 +1,32 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     return (
-        <>
-            <div className='flex bg-white-200 shadow-sm justify-between items-center mb-6'>
-                <div className='flex gap-8 px-5 m-3 text-xl items-center '>
-                    {/* <div><img src='src\assets\AppLogo.png' alt="Logo here" className='h-16 w-auto' /></div> */}
-                    <div><img src='src\assets\logo.svg' alt="Logo here" className='h-16 w-auto' /></div>
-                    <div>
-                        <ul className='flex gap-4'>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/hotel">Hotel</Link></li>
-                            {/* <li><Link to="/deals">Deals</Link></li> */}
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <ul className='flex gap-4 m-3 text-xl justify-between'>
-                        <li><Link to="/help">Help</Link></li>
-                        <li><Link to="/login">Login</Link></li>
-                    </ul>
-                </div>
+        <nav className='flex flex-col md:flex-row bg-white shadow-sm justify-between items-center px-4 md:px-10 py-3 mb-6'>
+            {/* Logo and Left Links */}
+            <div className='flex flex-col md:flex-row items-center gap-4 md:gap-8 w-full md:w-auto'>
+                <Link to="/">
+                    <img src='/src/assets/logo.svg' alt="Logo" className='h-12 md:h-16 w-auto' />
+                </Link>
+
+                <ul className='flex gap-6 text-base md:text-lg font-medium'>
+                    <li className="hover:text-blue-600"><Link to="/">Home</Link></li>
+                    <li className="hover:text-blue-600"><Link to="/hotel">Hotel</Link></li>
+                </ul>
             </div>
-        </>
-    )
+
+            {/* Right Links (Login/Help) */}
+            <div className='mt-3 md:mt-0 font-medium'>
+                <ul className='flex gap-6 text-base md:text-lg'>
+                    <li className="hover:text-blue-600"><Link to="/help">Help</Link></li>
+                    <li>
+                        <Link to="/login" className=''>
+                            Login
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    );
 }
