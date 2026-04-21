@@ -1,67 +1,83 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaGoogle, FaApple } from 'react-icons/fa';
 
 export default function CreateAccount() {
     return (
-        <>
-            <div className='mb-4'>
-                {/* Create an account */}
-                <div className='mx-12 p-8 w-120 shadow-xl rounded-2xl'>
-                    <div>
-                        <p className='text-2xl font-bold'>Create your StayRank account</p>
-                        <p className='text-sm text-gray-500'>Sign up to discover great hotels, manage bookings and access member-only deals.</p>
-                    </div>
-                    <div className='flex flex-row gap-4 mt-4'>
-                        <button type="submit" className='shadow-xl px-5 py-2 rounded-2xl text-black'>Continue with Google</button>
-                        <button type="submit" className='shadow-xl px-5 py-2 rounded-2xl text-black'>Continue with Apple</button>
-                    </div>
-                    <p>-------------------------or--------------------------------</p>
+        <div className='flex justify-center items-center min-h-screen p-4 md:p-8 rounded-2xl'>
+            {/* Changed w-120 to w-full max-w-lg and mx-12 to mx-auto */}
+            <div className='w-full max-w-lg bg-white p-6 md:p-10 shadow-xl rounded-3xl'>
 
-                    <div>
-                        {/* Full Name */}
-                        <div className='flex flex-col gap-2'>
-                            <label htmlFor="fullName" className='text-sm font-medium text-gray-700 mt-2'>Email Address </label>
-                            <input id="fullName" type="text" placeholder="Ava Thompson" className="px-4 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all" required />
-                            <p className='text-red-500 text-sm'>Please enter your full name (first and last).</p>
-
-                        </div>
-                        {/* Enter email */}
-                        <div className='flex flex-col gap-2 '>
-                            <label htmlFor="email-address" className='text-sm font-medium text-gray-700 mt-2'>Email Address </label>
-                            <input id="email-address" type="email" placeholder="you@example.com" className="px-4 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all" required />
-                            <p className='text-gray-500 text-sm'>Please enter a valid email address like you@example.com</p>
-                        </div>
-
-                        {/* Enter pass */}
-                        <div className='flex flex-col gap-2'>
-                            <label htmlFor="pass" className='text-sm font-medium text-gray-700 mt-2'>Password </label>
-                            <input id="pass" type="password" className="px-4 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all" required />
-                            <p className='text-gray-500 text-sm'>Password must be at least 8 characters including a number</p>
-                        </div>
-
-                        {/* Confirm pass */}
-                        <div className='flex flex-col gap-2'>
-                            <label htmlFor="conf-pass" className='text-sm font-medium text-gray-700 mt-2'>Confirm Password </label>
-                            <input id="conf-pass" type="password" className="px-4 py-2 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all" required />
-                            <p className='text-gray-500 text-sm'>Please enter a valid email address like you@example.com</p>
-                        </div>
-
-                        <div className='flex justify-between mt-2'>
-                            <div>
-                                <input type="checkbox" name="checkIt" id="termsncond" />
-                                <label htmlFor="termsncond" className='text-sm font-medium text-gray-700'>I agree to the Terms & Conditions </label>
-                            </div>
-                            <p className='text-blue-600'>Privacy Policy</p>
-                        </div>
-                        <div className='flex flex-col items-center justify-center mt-4 gap-2'>
-                            <button type="submit" className='w-full py-2 bg-blue-600 rounded-2xl text-white' >Create account</button>
-                            <h1 className='text-gray-500 text-sm'>Already have an account? <span className="text-blue-600 cursor-pointer">Log in </span> </h1>
-                        </div>
-                    </div>
+                <div className='mb-6'>
+                    <p className='text-2xl md:text-3xl font-bold text-gray-900'>Create your account</p>
+                    <p className='text-sm text-gray-500 mt-2'>Sign up to discover great hotels and member-only deals.</p>
                 </div>
 
-                {/* Side top hotel  */}
-                <div></div>
+                {/* Social Buttons: Stacks on mobile, side-by-side on tablet */}
+                <div className='flex flex-col sm:flex-row gap-3 mb-6'>
+                    <button className='flex-1 flex items-center justify-center gap-3 border border-gray-200 py-3 rounded-xl hover:bg-gray-50 transition-all font-medium text-xs md:text-sm'>
+                        <span className="p-1.5 bg-green-100 text-green-600 rounded-full shrink-0">
+                            <FaApple size={16} />
+                        </span>
+                        <span>Continue With Apple</span>
+                    </button>
+
+                    <button className='flex-1 flex items-center justify-center gap-3 border border-gray-200 py-3 rounded-xl hover:bg-gray-50 transition-all font-medium text-xs md:text-sm'>
+                        <span className="p-1.5 bg-blue-100 text-blue-600 rounded-full shrink-0">
+                            <FaGoogle size={16} />
+                        </span>
+                        <span>Continue With Google</span>
+                    </button>
+                </div>
+
+                {/* Divider */}
+                <div className="flex items-center gap-4 my-6">
+                    <div className="flex-1 h-px bg-gray-100"></div>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Or email</span>
+                    <div className="flex-1 h-px bg-gray-100"></div>
+                </div>
+
+                {/* Form Fields: Using gap-4 for better vertical spacing */}
+                <div className='flex flex-col gap-4'>
+                    <div className='flex flex-col gap-1.5'>
+                        <label htmlFor="fullName" className='text-xs font-bold text-gray-700 uppercase'>Full Name</label>
+                        <input id="fullName" type="text" placeholder="Ava Thompson" className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required />
+                    </div>
+
+                    <div className='flex flex-col gap-1.5'>
+                        <label htmlFor="email-address" className='text-xs font-bold text-gray-700 uppercase'>Email Address</label>
+                        <input id="email-address" type="email" placeholder="you@example.com" className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required />
+                    </div>
+
+                    <div className='flex flex-col gap-1.5'>
+                        <label htmlFor="pass" className='text-xs font-bold text-gray-700 uppercase'>Password</label>
+                        <input id="pass" type="password" placeholder="••••••••" className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required />
+                    </div>
+
+                    <div className='flex flex-col gap-1.5'>
+                        <label htmlFor="pass" className='text-xs font-bold text-gray-700 uppercase'>Confirm password</label>
+                        <input id="pass" type="password" placeholder="••••••••" className="px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition-all" required />
+                    </div>
+
+                    {/* Checkbox and Links */}
+                    <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mt-2'>
+                        <label className='flex items-center gap-2 cursor-pointer'>
+                            <input type="checkbox" id="termsncond" className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500" />
+                            <span className='text-xs text-gray-600 font-medium'>Agree to Terms & Conditions</span>
+                        </label>
+                        <p className='text-xs text-blue-600 font-bold hover:underline cursor-pointer'>Privacy Policy</p>
+                    </div>
+
+                    <div className='mt-4 flex flex-col items-center gap-4'>
+                        <button type="submit" className='w-full py-4 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-bold shadow-lg shadow-blue-100 transition-all'>
+                            Create Account
+                        </button>
+                        <p className='text-gray-500 text-sm'>
+                            Already have an account? <Link to="/login" className="text-blue-600 font-bold hover:underline ml-1">Log In</Link>
+                        </p>
+                    </div>
+                </div>
             </div>
-        </>
-    )
+        </div>
+    );
 }

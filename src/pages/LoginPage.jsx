@@ -1,4 +1,4 @@
-import { FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaGoogle, FaApple } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export default function LoginPage() {
@@ -63,17 +63,17 @@ export default function LoginPage() {
                         {/* Google Button */}
                         <button className='flex-1 flex items-center justify-center gap-2 border border-gray-200 py-3 rounded-xl hover:bg-gray-50 transition-all font-medium text-sm'>
                             <span className="p-1.5 bg-green-100 text-green-600 rounded-full">
-                                <FaWhatsapp size={16} />
+                                <FaGoogle size={16} />
                             </span>
-                            WhatsApp Login
+                            Google Login
                         </button>
 
                         {/* Apple Button */}
                         <button className='flex-1 flex items-center justify-center gap-2 border border-gray-200 py-3 rounded-xl hover:bg-gray-50 transition-all font-medium text-sm'>
                             <span className="p-1.5 bg-blue-100 text-blue-600 rounded-full">
-                                <FaLinkedin size={16} />
+                                <FaApple size={16} />
                             </span>
-                            LinkedIn Login
+                            Apple Login
                         </button>
                     </div>
 
