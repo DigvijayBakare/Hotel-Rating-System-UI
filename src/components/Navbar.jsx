@@ -12,7 +12,7 @@ export default function Navbar() {
 
                 <ul className='flex gap-6 text-base md:text-lg font-medium'>
                     <li className="hover:text-blue-600"><Link to="/">Home</Link></li>
-                    <li className="hover:text-blue-600"><Link to="/hotel">Hotel</Link></li>
+                    <li className="hover:text-blue-600"><Link to="/hotels">Hotel</Link></li>
                 </ul>
             </div>
 
